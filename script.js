@@ -5,8 +5,6 @@ var highscore = document.querySelector(".highscore")
 var buttonsrow = document.querySelector(".buttons");
 var timer = document.querySelector(".timer");
 var timerInterval;
-var correctsound = document.querySelector(".correct");
-var wrongsound = document.querySelector(".wrong");
 var cw = document.querySelector(".cw");
 var cwtime = 2;
 var seconds = 60;
@@ -31,10 +29,11 @@ function quizopening() {
     a2.addEventListener("click", function () {
         scorepage();
     });
+
+    console.log(quizopening);
 }
 quizopening();
 
-//Timer
 function countdown() {
     timerInterval = setInterval(function() {
     seconds --;
@@ -46,14 +45,18 @@ function countdown() {
             postquiz();
         }
     }, 1000);
+
+    console.log(countdown);
 }
 
 function timepoints() {
     score += seconds;
+    
+    console.log(timepoints)
 }
 
 function correct() {
-    correctsound.play();
+    console.log(correct);
 }
 
 function correctcw() {
@@ -67,11 +70,14 @@ function correctcw() {
             cwtime = 2;
         }
     }, 350);
+
+    console.log(correctcw);
 }
 
 function wrong() {
-    wrongsound.play();
     seconds -=5;
+
+    console.log(wrong);
 }
 
 function wrongcw() {
@@ -85,9 +91,10 @@ function wrongcw() {
             cwtime = 2;
         }
     }, 350);
+
+    console.log(wrongcw);
 }
 
-//Question 1 
 function question1() {
     a1.remove();
     a2.remove();
@@ -130,9 +137,10 @@ function question1() {
         correct();
 
     });
+
+    console.log(question1);
 }
 
-//Question 2 
 function question2() {
     a1.remove();
     a2.remove();
@@ -175,9 +183,10 @@ function question2() {
         question3();
         wrong();
     });
+
+    console.log(question2);
 }
 
-//Question 3 
 function question3() {
     a1.remove();
     a2.remove();
@@ -220,9 +229,10 @@ function question3() {
         question4();
         wrong();
     });
+
+    console.log(question3);
 }
 
-//Question 4 
 function question4() {
     a1.remove();
     a2.remove();
@@ -265,9 +275,10 @@ function question4() {
         question5();
         wrong();
     });
+
+    console.log(question4);
 }
 
-//Question 5 layout.
 function question5() {
     a1.remove();
     a2.remove();
@@ -302,9 +313,9 @@ function question5() {
         wrong();
     });
 
+    console.log(question5);
 }
 
-//Question 6 layout.
 function question6() {
     a1.remove();
     a2.remove();
@@ -347,11 +358,10 @@ function question6() {
         postquiz();
         wrong();
     });
+
+    console.log(question6);
 }
 
-
-
-//Post-Quiz 
 function postquiz() {
     timepoints();
     seconds = 0; 
@@ -370,30 +380,33 @@ function postquiz() {
         localStorage.setItem("score", score);
         scorepage();
     });
+
+    console.log(postquiz);
 }
 
-// //High score 
-// function scorepage() {
-//     clearInterval (timerInterval);
-//     a1.remove();
-//     a2.remove();
-//     highscore.style.visibility = "hidden";
-//     banner.textContent = "High Scores"
+function scorepage() {
+    clearInterval (timerInterval);
+    a1.remove();
+    a2.remove();
+    highscore.style.visibility = "hidden";
+    banner.textContent = "High Scores"
     
-//     question.textContent = localStorage.getItem("user") + ": " + localStorage.getItem("score");
+    question.textContent = localStorage.getItem("user") + ": " + localStorage.getItem("score");
     
-//     a1 = document.createElement("BUTTON");
-//     a1.innerHTML = "Restart Quiz";
-//     document.body.children[4].appendChild(a1);
-//     a1.addEventListener("click", function () {
-//         location.reload();
-//     });
+    a1 = document.createElement("BUTTON");
+    a1.innerHTML = "Restart Quiz";
+    document.body.children[4].appendChild(a1);
+    a1.addEventListener("click", function () {
+        location.reload();
+    });
 
-//     a2 = document.createElement("BUTTON");
-//     a2.innerHTML = "Clear Scores";
-//     document.body.children[4].appendChild(a2);
-//     a2.addEventListener("click", function () {
-//         localStorage.clear();
-//         question.textContent = "";
-//     });
-// }
+    a2 = document.createElement("BUTTON");
+    a2.innerHTML = "Clear Scores";
+    document.body.children[4].appendChild(a2);
+    a2.addEventListener("click", function () {
+        localStorage.clear();
+        question.textContent = "";
+    });
+
+    console.log(scorepage);
+}
