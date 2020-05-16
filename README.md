@@ -1,3 +1,5 @@
 # homework4-codequiz
 
-In this application, there is a 5 question, multiple choice quiz that the user takes. The user only has 60 seconds to finish this quiz.
+This is an updated version of my coding quiz assignment. 
+There is now a beggining page with a functioning start quiz button.
+There is also a score page that allows the player to input their initials to save their score. 
